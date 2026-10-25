@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="ms-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titisan Air Wuduk Pintar: Kuiz Rukun & Niat Wuduk (Tahun 1)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fredoka & Quicksand (Mesra Murid Tahun 1) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- MediaPipe Hands & Camera Utils CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .font-fun {
+      font-family: 'Fredoka', cursive, sans-serif;
+    }
+
+    /* Animasi Maskot Si Titis & Buih Sabun */
+    @keyframes bounceMascot {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+    .animate-mascot {
+      animation: bounceMascot 2.6s ease-in-out infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.7); opacity: 0; }
+      20% { opacity: 0.7; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(-15vh) scale(1.15); opacity: 0; }
+    }
+    .soap-bubble {
+      position: absolute;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(125, 211, 252, 0.4) 60%, rgba(56, 189, 248, 0.7) 100%);
+      box-shadow: inset 0 0 12px rgba(255,255,255,0.9), 0 4px 10px rgba(14, 165, 233, 0.2);
+      pointer-events: none;
+      animation: floatUp linear infinite;
+    }
+
+    /* Gaya Butang Buih Air 3D untuk Tahun 1 */
+    .bubble-card-a {
+      background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%);
+      box-shadow: 0 8px 0 #0284c7, 0 12px 20px rgba(2, 132, 199, 0.25), inset 0 3px 6px #ffffff;
+    }
+    .bubble-card-b {
+      background: linear-gradient(180deg, #ffffff 0%, #fef3c7 100%);
+      box-shadow: 0 8px 0 #d97706, 0 12px 20px rgba(217, 119, 6, 0.25), inset 0 3px 6px #ffffff;
+    }
+    .bubble-card-c {
+      background: linear-gradient(180deg, #ffffff 0%, #fce7f3 100%);
+      box-shadow: 0 8px 0 #db2777, 0 12px 20px rgba(219, 39, 119, 0.25), inset 0 3px 6px #ffffff;
+    }
+    .bubble-card-active {
+      transform: translateY(4px) scale(1.03);
+    }
+
+    /* Kecerahan Kamera Web Tanpa Lapisan Gelap */
+    .mirror-camera {
+      transform: scaleX(-1);
+    }
+    .cam-bright-normal {
+      filter: brightness(1.15) contrast(1.06) saturate(1.12);
+    }
+    .cam-bright-high {
+      filter: brightness(1.38) contrast(1.12) saturate(1.22);
+    }
+    .cam-bright-ultra {
+      filter: brightness(1.65) contrast(1.18) saturate(1.30);
+    }
+
+    /* Bulatan masa pegang (dwell ring) */
+    .dwell-ring {
+      transition: stroke-dashoffset 0.08s linear;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-sky-200 via-cyan-100 to-emerald-100 min-h-screen text-slate-800 flex flex-col justify-between overflow-x-hidden relative">
+
+  <!-- ================= BUIH SABUN BERANIMASI (LATAR BELAKANG CERIA TAHUN 1) ================= -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="soap-bubble w-12 h-12 left-[6%]" style="animation-duration: 9s; animation-delay: 0s;"></div>
+    <div class="soap-bubble w-20 h-20 left-[18%]" style="animation-duration: 13s; animation-delay: 2s;"></div>
+    <div class="soap-bubble w-10 h-10 left-[35%]" style="animation-duration: 8s; animation-delay: 4s;"></div>
+    <div class="soap-bubble w-16 h-16 left-[55%]" style="animation-duration: 11s; animation-delay: 1s;"></div>
+    <div class="soap-bubble w-24 h-24 left-[75%]" style="animation-duration: 14s; animation-delay: 3s;"></div>
+    <div class="soap-bubble w-14 h-14 left-[90%]" style="animation-duration: 10s; animation-delay: 5s;"></div>
+
+    <!-- Pelangi & Awan Comel -->
+    <svg class="absolute top-4 left-4 w-32 h-20 opacity-75" viewBox="0 0 120 70">
+      <path d="M10,60 A50,50 0 0,1 110,60" fill="none" stroke="#fb7185" stroke-width="6" stroke-linecap="round"/>
+      <path d="M17,60 A43,43 0 0,1 103,60" fill="none" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+      <path d="M24,60 A36,36 0 0,1 96,60" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round"/>
+      <path d="M31,60 A29,29 0 0,1 89,60" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- ================= BAR KAWALAN GURU DI ATAS (HEADER) ================= -->
+  <header class="relative z-20 w-full max-w-6xl mx-auto px-3 py-2.5 flex flex-wrap justify-between items-center gap-2">
+    <!-- Logo & Tajuk -->
+    <div class="flex items-center gap-2.5 bg-white/95 px-3.5 py-2 rounded-2xl shadow-md border-2 border-sky-300">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 flex items-center justify-center text-white text-xl shadow-inner">
+        <i class="fa-solid fa-droplet"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <h1 class="font-fun text-base md:text-lg font-bold text-sky-900 leading-none">Titisan Air Wuduk Pintar</h1>
+          <span class="bg-amber-400 text-amber-950 font-fun text-[11px] font-bold px-2 py-0.5 rounded-full">Tahun 1</span>
+        </div>
+        <p class="text-[11px] text-sky-700 font-bold">Visual • Auditori (BM Malaysia) • Kinestetik</p>
+      </div>
+    </div>
+
+    <!-- Alat Kawalan Suara BM Malaysia & Kecerahan Kamera -->
+    <div class="flex flex-wrap items-center gap-2 bg-white/95 px-3 py-2 rounded-2xl shadow-md border-2 border-sky-300">
+      <!-- Pemilih Suara Asal (Melayu / Nusantara) -->
+      <div class="flex items-center gap-1 bg-emerald-50 border border-emerald-300 rounded-xl px-2.5 py-1">
+        <span class="text-xs font-bold text-emerald-800">🗣️ Suara:</span>
+        <select id="voiceSelect" class="bg-transparent text-xs font-bold text-emerald-950 focus:outline-none cursor-pointer max-w-[175px] truncate" title="Pilih suara Bahasa Melayu / Nusantara (Elak pelat Inggeris)">
+          <option value="auto">Suara Asal (Melayu/Nusantara)</option>
+        </select>
+      </div>
+
+      <!-- Butang Uji / Togol Suara -->
+      <button id="btnVoiceToggle" class="px-2.5 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 text-xs font-bold flex items-center gap-1.5 transition" title="Buka/Tutup Suara">
+        <i class="fa-solid fa-volume-high" id="voiceIcon"></i>
+        <span id="voiceStatusText">Suara: ON</span>
+      </button>
+
+      <!-- Kawalan Kecerahan Kamera (Cerah / Sangat Cerah) -->
+      <button id="btnBrightness" class="px-2.5 py-1.5 rounded-xl bg-yellow-100 hover:bg-yellow-200 text-yellow-900 border border-yellow-400 text-xs font-bold flex items-center gap-1.5 transition" title="Laraskan kecerahan paparan kamera di dalam kelas">
+        <i class="fa-solid fa-sun text-amber-500"></i>
+        <span id="brightnessText">Kamera: Cerah</span>
+      </button>
+
+      <!-- Togol Hidup/Mati Kamera -->
+      <button id="btnCameraToggle" class="px-2.5 py-1.5 rounded-xl bg-sky-100 hover:bg-sky-200 text-sky-900 border border-sky-300 text-xs font-bold flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-video" id="camIcon"></i>
+        <span id="camStatusText">Kamera</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= RUANG UTAMA PERMAINAN ================= -->
+  <main class="relative z-10 flex-1 max-w-6xl w-full mx-auto px-3 py-1 flex flex-col justify-center items-center">
+
+    <!-- 1. SKRIN MULA (START SCREEN CERIA TAHUN 1) -->
+    <div id="startScreen" class="w-full max-w-3xl bg-white/95 rounded-[2rem] p-6 md:p-8 shadow-2xl border-4 border-sky-400 text-center relative overflow-hidden">
+      <!-- Hiasan Bintang Bucu -->
+      <div class="absolute -top-6 -right-6 w-24 h-24 bg-amber-300/40 rounded-full blur-xl pointer-events-none"></div>
+
+      <!-- Maskot Kartun "Si Titis" -->
+      <div class="flex justify-center mb-3">
+        <div class="relative animate-mascot">
+          <svg class="w-28 h-28 drop-shadow-lg" viewBox="0 0 120 120">
+            <!-- Badan Titisan Air -->
+            <path d="M60 10 C60 10, 105 62, 105 85 C105 107, 85 116, 60 116 C35 116, 15 107, 15 85 C15 62, 60 10, 60 10 Z" fill="url(#dropGrad)" stroke="#0284c7" stroke-width="4"/>
+            <defs>
+              <linearGradient id="dropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7dd3fc"/>
+                <stop offset="50%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+            <!-- Kilauan Air Putih -->
+            <ellipse cx="42" cy="58" rx="6" ry="13" transform="rotate(-20 42 58)" fill="#ffffff" opacity="0.8"/>
+            <circle cx="36" cy="76" r="3.5" fill="#ffffff" opacity="0.8"/>
+            <!-- Kopiah / Songkok Putih Comel di Atas Kepala Si Titis -->
+            <path d="M40 28 Q60 18 80 28 L77 38 Q60 32 43 38 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+            <!-- Mata Comel -->
+            <circle cx="46" cy="78" r="6" fill="#0f172a"/>
+            <circle cx="74" cy="78" r="6" fill="#0f172a"/>
+            <circle cx="44" cy="76" r="2.2" fill="#ffffff"/>
+            <circle cx="72" cy="76" r="2.2" fill="#ffffff"/>
+            <!-- Pipi Merah Jambu -->
+            <ellipse cx="36" cy="86" rx="5" ry="3" fill="#fb7185" opacity="0.7"/>
+            <ellipse cx="84" cy="86" rx="5" ry="3" fill="#fb7185" opacity="0.7"/>
+            <!-- Mulut Senyum Lebar -->
+            <path d="M50 86 Q60 96 70 86" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span class=" -bottom-1 left-1/2 -translate-x-1/2 bg-amber-400 text-amber-950 font-fun text-xs font-bold px-3 py-0.5 rounded-full shadow border border-white whitespace-nowrap">
+            Hai! Saya Si Titis 💧
+          </span>
+        </div>
+      </div>
+
+      <h2 class="font-fun text-2xl md:text-4xl font-extrabold text-sky-900 mt-2 mb-2">
+        Jom Belajar Niat & Rukun Wuduk!
+      </h2>
+      <p class="text-slate-600 font-bold text-sm md:text-base max-w-xl mx-auto mb-5">
+        Gerakkan tangan adik-adik di hadapan kamera yang <span class="text-sky-600 underline">cerah & jelas</span> untuk memecahkan buih jawapan <strong class="text-sky-600">A</strong>, <strong class="text-amber-600">B</strong>, atau <strong class="text-pink-600">C</strong>!
+      </p>
+
+      <!-- Kad 3 Mod Pembelajaran Kelas (Visual 14, Auditori 7, Kinestetik 9) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-left">
+        <div class="p-3.5 bg-sky-50 border-2 border-sky-300 rounded-2xl flex items-center gap-3 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-sky-400 text-white flex items-center justify-center text-2xl shrink-0 shadow">
+            👀
+          </div>
+          <div>
+            <h4 class="font-fun font-bold text-sm text-sky-900">14 Murid Visual</h4>
+            <p class="text-xs font-semibold text-sky-700">Kamera cerah tanpa gelap, gambar anggota wuduk & warna ceria!</p>
+          </div>
+        </div>
+
+        <div class="p-3.5 bg-amber-50 border-2 border-amber-300 rounded-2xl flex items-center gap-3 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-amber-400 text-white flex items-center justify-center text-2xl shrink-0 shadow">
+            🔊
+          </div>
+          <div>
+            <h4 class="font-fun font-bold text-sm text-amber-900">7 Murid Auditori</h4>
+            <p class="text-xs font-semibold text-amber-800">Sebutan Bahasa Melayu Malaysia (`ms-MY`) yang jelas & bunyi air!</p>
+          </div>
+        </div>
+
+        <div class="p-3.5 bg-emerald-50 border-2 border-emerald-300 rounded-2xl flex items-center gap-3 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-400 text-white flex items-center justify-center text-2xl shrink-0 shadow">
+            ✋
+          </div>
+          <div>
+            <h4 class="font-fun font-bold text-sm text-emerald-900">9 Murid Kinestetik</h4>
+            <p class="text-xs font-semibold text-emerald-800">Sentuh buih jawapan guna tangan di kamera atau jari di skrin!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <button id="btnStartGame" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-b from-emerald-400 to-teal-600 hover:from-emerald-500 hover:to-teal-700 text-white font-fun text-2xl font-bold rounded-3xl shadow-[0_6px_0_#0f766e] active:translate-y-1 transition flex items-center justify-center gap-3 border-2 border-white">
+          <i class="fa-solid fa-play"></i> Mula Main Sekarang!
+        </button>
+        <button id="btnTestMalayVoice" class="w-full sm:w-auto px-5 py-4 bg-amber-100 hover:bg-amber-200 text-amber-900 font-fun text-base font-bold rounded-3xl border-2 border-amber-400 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-volume-high text-amber-600"></i> Uji Suara Asal
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. SKRIN PERMAINAN UTAMA (CERAH & MESRA TAHUN 1) -->
+    <div id="gameScreen" class="w-full hidden flex flex-col items-center">
+
+      <!-- Bar Atas: Maskot Si Titis + Soalan Semasa + Bintang Markah -->
+      <div class="w-full max-w-5xl bg-white/95 rounded-3xl px-4 py-3 mb-2.5 shadow-lg border-4 border-sky-300 flex flex-col md:flex-row items-center justify-between gap-3">
+        <!-- Maskot Kecil Si Titis & Nombor Soalan -->
+        <div class="flex items-center gap-3 w-full md:w-auto">
+          <!-- SVG Maskot Si Titis Ekspresi -->
+          <div id="mascotSmall" class="w-14 h-14 rounded-2xl bg-sky-100 border-2 border-sky-300 flex items-center justify-center shrink-0 animate-mascot">
+            <svg class="w-11 h-11" viewBox="0 0 120 120">
+              <path d="M60 12 C60 12, 102 62, 102 85 C102 106, 84 115, 60 115 C36 115, 18 106, 18 85 C18 62, 60 12, 60 12 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="5"/>
+              <circle cx="46" cy="78" r="6" fill="#0f172a"/>
+              <circle cx="74" cy="78" r="6" fill="#0f172a"/>
+              <circle cx="44" cy="76" r="2.2" fill="#ffffff"/>
+              <circle cx="72" cy="76" r="2.2" fill="#ffffff"/>
+              <path d="M48 88 Q60 98 72 88" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="text-left flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span id="questionBadge" class="bg-sky-500 text-white font-fun text-xs md:text-sm font-bold px-3 py-0.5 rounded-full shadow-sm">
+                Soalan 1 / 10
+              </span>
+              <button id="btnReadQuestionAgain" class="bg-amber-400 hover:bg-amber-500 text-amber-950 font-fun text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 transition">
+                <i class="fa-solid fa-volume-high"></i> Dengar Semula
+              </button>
+            </div>
+            <!-- Teks Soalan Besar & Jelas Untuk Tahun 1 -->
+            <h3 id="questionText" class="font-fun text-lg md:text-2xl font-bold text-slate-900 leading-snug">
+              Apakah hukum berniat ketika berwuduk?
+            </h3>
+          </div>
+        </div>
+
+        <!-- Kotak Markah Bintang -->
+        <div class="flex items-center gap-3 shrink-0 bg-amber-50 border-2 border-amber-300 px-4 py-2 rounded-2xl">
+          <span class="text-2xl">⭐</span>
+          <div class="text-left">
+            <div class="text-[10px] font-extrabold uppercase text-amber-800">Markah Adik</div>
+            <div id="currentScore" class="font-fun text-2xl font-extrabold text-amber-600 leading-none">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TETINGKAP KAMERA CERAH & JELAS (TIADA OVERLAY GELAP!) -->
+      <div id="cameraStage" class="w-full max-w-5xl relative min-h-[410px] md:min-h-[470px] rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl bg-sky-100 flex flex-col justify-between">
+        
+        <!-- Suapan Video Kamera Web: Opacity 100% dan Filter Kecerahan Tinggi -->
+        <video id="webcamVideo" class="absolute inset-0 w-full h-full object-cover mirror-camera cam-bright-high" playsinline></video>
+
+        <!-- Lapisan Sandaran Ceria Jika Kamera Belum Dibuka -->
+        <div id="cameraFallbackBg" class="absolute inset-0 bg-gradient-to-b from-sky-200/80 via-cyan-100/60 to-emerald-100/80 pointer-events-none hidden"></div>
+
+        <!-- Kanvas Lukisan MediaPipe Hands (Garis Tangan Berwarna Terang) -->
+        <canvas id="handCanvas" class="absolute inset-0 w-full h-full z-10 pointer-events-none mirror-camera"></canvas>
+
+        <!-- Kursor Titisan Ajaib / Jari Murid -->
+        <div id="handCursor" class="absolute z-30 w-16 h-16 rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 hidden flex items-center justify-center shadow-xl border-4 border-white bg-gradient-to-br from-cyan-400 to-blue-600">
+          <span class="text-2xl select-none">💧</span>
+          <!-- Bulatan Progress Masa Sentuh (1.2 Saat) -->
+          <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="28" stroke="rgba(255,255,255,0.45)" stroke-width="5" fill="transparent" />
+            <circle id="dwellProgressCircle" cx="32" cy="32" r="28" stroke="#fde047" stroke-width="6" stroke-dasharray="176" stroke-dashoffset="176" stroke-linecap="round" fill="transparent" class="dwell-ring" />
+          </svg>
+        </div>
+
+        <!-- BARIS ATAS DALAM KAMERA: BUIH JAWAPAN A, B, C (DI ATAS SUPAYA WAJAH MURID DI TENGAH/BAWAH NAMPAK CERAH & JELAS) -->
+        <div id="optionsContainer" class="relative z-20 p-3 md:p-5 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 w-full">
+
+          <!-- BUIH JAWAPAN A -->
+          <div data-option="A" class="option-card bubble-card-a cursor-pointer rounded-3xl p-3.5 md:p-4 border-4 border-sky-400 transition-all duration-150 relative flex items-center gap-3.5">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-sky-500 text-white font-fun font-extrabold text-2xl md:text-3xl flex items-center justify-center shadow-md shrink-0 border-2 border-white">
+              A
+            </div>
+            <div class="flex-1 text-left">
+              <div class="option-emoji text-xl md:text-2xl mb-0.5">🌟</div>
+              <div class="option-text font-fun font-bold text-slate-900 text-base md:text-xl leading-tight">Pilihan A</div>
+            </div>
+            <!-- Penunjuk Semasa Tangan Menyentuh Buih -->
+            <div class="dwell-box hidden absolute inset-0 bg-sky-400/35 rounded-3xl border-4 border-yellow-300 flex items-center justify-end pr-4 pointer-events-none">
+              <span class="bg-yellow-400 text-slate-950 font-fun font-bold text-xs px-2.5 py-1 rounded-full shadow animate-bounce">Pegang Kejap! 💧</span>
+            </div>
+          </div>
+
+          <!-- BUIH JAWAPAN B -->
+          <div data-option="B" class="option-card bubble-card-b cursor-pointer rounded-3xl p-3.5 md:p-4 border-4 border-amber-400 transition-all duration-150 relative flex items-center gap-3.5">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-amber-500 text-white font-fun font-extrabold text-2xl md:text-3xl flex items-center justify-center shadow-md shrink-0 border-2 border-white">
+              B
+            </div>
+            <div class="flex-1 text-left">
+              <div class="option-emoji text-xl md:text-2xl mb-0.5">🤲</div>
+              <div class="option-text font-fun font-bold text-slate-900 text-base md:text-xl leading-tight">Pilihan B</div>
+            </div>
+            <div class="dwell-box hidden absolute inset-0 bg-amber-400/35 rounded-3xl border-4 border-yellow-300 flex items-center justify-end pr-4 pointer-events-none">
+              <span class="bg-yellow-400 text-slate-950 font-fun font-bold text-xs px-2.5 py-1 rounded-full shadow animate-bounce">Pegang Kejap! 💧</span>
+            </div>
+          </div>
+
+          <!-- BUIH JAWAPAN C -->
+          <div data-option="C" class="option-card bubble-card-c cursor-pointer rounded-3xl p-3.5 md:p-4 border-4 border-pink-400 transition-all duration-150 relative flex items-center gap-3.5">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-pink-500 text-white font-fun font-extrabold text-2xl md:text-3xl flex items-center justify-center shadow-md shrink-0 border-2 border-white">
+              C
+            </div>
+            <div class="flex-1 text-left">
+              <div class="option-emoji text-xl md:text-2xl mb-0.5">💧</div>
+              <div class="option-text font-fun font-bold text-slate-900 text-base md:text-xl leading-tight">Pilihan C</div>
+            </div>
+            <div class="dwell-box hidden absolute inset-0 bg-pink-400/35 rounded-3xl border-4 border-yellow-300 flex items-center justify-end pr-4 pointer-events-none">
+              <span class="bg-yellow-400 text-slate-950 font-fun font-bold text-xs px-2.5 py-1 rounded-full shadow animate-bounce">Pegang Kejap! 💧</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RUANG TENGAH KAMERA DIBIARKAN TERBUKA SUPAYA WAJAH & TANGAN MURID KELIHATAN JELAS -->
+        <div class="relative z-20 px-4 py-2 flex justify-between items-end pointer-events-none">
+          <div class="bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full shadow-md border-2 border-sky-300 text-xs font-bold text-sky-900 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Angkat tangan ke buih <strong>A, B, C</strong> di atas atau klik terus!</span>
+          </div>
+          <div id="handStatusBadge" class="bg-amber-400 text-amber-950 font-fun text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md border-2 border-white">
+            🖐️ Tunjukkan Tangan Adik!
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL MAKLUM BALAS COMEL (BETUL / CUBA LAGI) -->
+      <div id="feedbackModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-sky-950/40 backdrop-blur-xs p-4">
+        <div id="feedbackCard" class="w-full max-w-md bg-white rounded-[2rem] p-6 text-center shadow-2xl border-8 border-emerald-400 animate-mascot">
+          <div id="feedbackEmoji" class="text-6xl mb-2">🎉</div>
+          <h4 id="feedbackTitle" class="font-fun text-3xl font-extrabold mb-2 text-emerald-700">Bijaknya Adik!</h4>
+          <p id="feedbackDesc" class="text-base font-bold text-slate-700 mb-6 leading-relaxed">
+            Hukum berniat ketika berwuduk adalah WAJIB.
+          </p>
+          <button id="btnNextQuestion" class="w-full py-3.5 bg-gradient-to-b from-sky-400 to-blue-600 hover:from-sky-500 hover:to-blue-700 text-white font-fun text-xl font-bold rounded-2xl shadow-[0_5px_0_#1d4ed8] active:translate-y-1 transition">
+            Soalan Seterusnya <i class="fa-solid fa-circle-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. SKRIN TAMAT & PIALA KEMENANGAN (RESULT SCREEN) -->
+    <div id="resultScreen" class="w-full max-w-xl bg-white/95 rounded-[2rem] p-6 md:p-8 shadow-2xl border-4 border-amber-400 text-center hidden">
+      <div class="text-6xl mb-2 animate-bounce">🏆</div>
+      <h2 class="font-fun text-3xl md:text-4xl font-extrabold text-sky-900 mb-1">Tahniah Anak Soleh & Solehah!</h2>
+      <p class="text-slate-600 font-bold text-sm mb-4">Adik telah berjaya menjawab semua soalan Wuduk!</p>
+
+      <!-- Bintang Kemenangan -->
+      <div id="starContainer" class="flex justify-center gap-3 text-4xl mb-4 text-amber-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <!-- Paparan Skor Akhir -->
+      <div class="bg-gradient-to-b from-sky-50 to-cyan-100 border-4 border-sky-300 rounded-3xl p-5 mb-6 shadow-inner">
+        <span class="text-xs uppercase font-extrabold text-sky-800 tracking-wider">Jumlah Markah Adik</span>
+        <div class="font-fun text-6xl font-extrabold text-sky-600 my-1">
+          <span id="finalScore">100</span><span class="text-2xl text-sky-500"> / 100</span>
+        </div>
+        <p id="evaluationMessage" class="text-base font-bold text-teal-900 mt-2">
+          Alhamdulillah, adik bijak! Semua rukun dan niat wuduk adik ingat dengan baik.
+        </p>
+      </div>
+
+      <button id="btnRestartGame" class="px-8 py-4 bg-gradient-to-b from-emerald-400 to-teal-600 hover:from-emerald-500 hover:to-teal-700 text-white font-fun text-xl font-bold rounded-3xl shadow-[0_6px_0_#0f766e] active:translate-y-1 transition">
+        <i class="fa-solid fa-rotate-right mr-2"></i> Main Semula Bersama Kawan!
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER RINGKAS ================= -->
+  <footer class="relative z-10 w-full text-center py-2 text-sky-900 font-bold text-xs">
+    💧 Permainan Pendidikan Islam Tahun 1 • Suara Asal Melayu/Nusantara & Kamera Cerah Interaktif
+  </footer>
+
+  <!-- ================= SKRIP LOGIK, SUARA ASAL NUSANTARA & MEDIAPIPE ================= -->
+  <script>
+    /* ====================================================================
+       1. DATA 10 SOALAN KUIZ NIAT & RUKUN WUDUK (DENGAN EMOJI VISUAL TAHUN 1)
+       ==================================================================== */
+    const QUIZ_DATA = [
+      {
+        question: "1. Apakah hukum berniat ketika berwuduk?",
+        options: { A: "Sunat", B: "Wajib", C: "Harus" },
+        emojis:  { A: "🌙", B: "⭐", C: "☁️" },
+        correct: "B",
+        explanation: "Hukum berniat ketika berwuduk adalah WAJIB."
+      },
+      {
+        question: "2. Bilakah waktu yang tepat untuk berniat wuduk?",
+        options: { A: "Ketika membasuh muka", B: "Selepas selesai wuduk", C: "Ketika membasuh kaki" },
+        emojis:  { A: "😊💦", B: "🙌", C: "🦶💦" },
+        correct: "A",
+        explanation: "Kita wajib berniat wuduk serentak ketika air membasuh muka."
+      },
+      {
+        question: "3. Apakah tujuan niat wuduk?",
+        options: { A: "Untuk membersihkan pakaian", B: "Untuk mengangkat hadas kecil", C: "Untuk menghilangkan najis pada badan" },
+        emojis:  { A: "👕", B: "🤲✨", C: "🧼" },
+        correct: "B",
+        explanation: "Tujuan niat wuduk adalah untuk mengangkat hadas kecil kerana Allah Taala."
+      },
+      {
+        question: "4. Berapakah bilangan rukun wuduk menurut mazhab Syafi‘i?",
+        options: { A: "Empat", B: "Lima", C: "Enam" },
+        emojis:  { A: "4️⃣", B: "5️⃣", C: "6️⃣" },
+        correct: "C",
+        explanation: "Ada ENAM rukun wuduk mengikut mazhab Syafi‘i."
+      },
+      {
+        question: "5. Apakah rukun wuduk yang pertama?",
+        options: { A: "Membasuh tangan", B: "Berniat", C: "Menyapu kepala" },
+        emojis:  { A: "👐💦", B: "💖🤲", C: "👦💦" },
+        correct: "B",
+        explanation: "Rukun wuduk yang pertama ialah BERNIAT di dalam hati."
+      },
+      {
+        question: "6. Anggota manakah yang wajib dibasuh selepas berniat wuduk?",
+        options: { A: "Muka", B: "Leher", C: "Telinga sahaja" },
+        emojis:  { A: "😊💦", B: "🧣", C: "👂" },
+        correct: "A",
+        explanation: "Selepas berniat, kita wajib membasuh seluruh MUKA."
+      },
+      {
+        question: "7. Sehingga manakah tangan wajib dibasuh ketika berwuduk?",
+        options: { A: "Sehingga pergelangan tangan", B: "Sehingga siku", C: "Sehingga bahu" },
+        emojis:  { A: "✋", B: "💪💦", C: "🤷‍♂️" },
+        correct: "B",
+        explanation: "Kedua-dua tangan wajib dibasuh sehingga ke paras SIKU."
+      },
+      {
+        question: "8. Apakah rukun wuduk yang melibatkan kepala?",
+        options: { A: "Membasuh seluruh kepala", B: "Menyapu sebahagian kepala", C: "Menyapu leher" },
+        emojis:  { A: "🚿", B: "👦💧", C: "🧣" },
+        correct: "B",
+        explanation: "Rukun keempat ialah menyapu air pada sebahagian kepala."
+      },
+      {
+        question: "9. Sehingga manakah kaki wajib dibasuh ketika berwuduk?",
+        options: { A: "Sehingga buku lali", B: "Sehingga lutut", C: "Sehingga betis sahaja" },
+        emojis:  { A: "🦶💦", B: "🦵", C: "🧦" },
+        correct: "A",
+        explanation: "Kaki wajib dibasuh sehingga ke paras BUKU LALI."
+      },
+      {
+        question: "10. Apakah rukun wuduk yang terakhir?",
+        options: { A: "Berkumur-kumur", B: "Membaca doa wuduk", C: "Tertib" },
+        emojis:  { A: "👄💦", B: "🤲📖", C: "1️⃣2️⃣3️⃣" },
+        correct: "C",
+        explanation: "Rukun wuduk yang terakhir ialah TERTIB, iaitu mengikut turutan yang betul."
+      }
+    ];
+
+    /* ====================================================================
+       2. SISTEM SUARA ASAL (MELAYU / NUSANTARA) - TIADA LAGI PELAT BRITISH!
+       ==================================================================== */
+    let isSpeechEnabled = true;
+    let availableVoices = [];
+    let selectedVoiceURI = 'auto';
+    const voiceSelectEl = document.getElementById('voiceSelect');
+
+    function populateMalayVoices() {
+      if (!('speechSynthesis' in window)) return;
+      availableVoices = window.speechSynthesis.getVoices();
+      if (!availableVoices.length) return;
+
+      // Simpan pilihan semasa jika ada
+      const currentSelection = voiceSelectEl.value || 'auto';
+      voiceSelectEl.innerHTML = '<option value="auto">🌟 Suara Asal (Melayu / Nusantara)</option>';
+
+      // 1. Keutamaan Pertama: Suara Bahasa Melayu (ms-MY / ms)
+      const msVoices = availableVoices.filter(v => {
+        const lang = (v.lang || '').toLowerCase();
+        const name = (v.name || '').toLowerCase();
+        return lang.startsWith('ms') || name.includes('malay') || name.includes('melayu') || name.includes('yasmin') || name.includes('rizwan') || name.includes('amira');
+      });
+
+      // 2. Keutamaan Kedua (Suara Asal Chrome): Suara Nusantara (id-ID / Google Bahasa Indonesia / Gadis / Damayanti)
+      // Ini mengelakkan pelayar jatuh kepada suara en-GB (British) apabila tiada ms-MY dipasang!
+      const idVoices = availableVoices.filter(v => {
+        const lang = (v.lang || '').toLowerCase();
+        const name = (v.name || '').toLowerCase();
+        return !msVoices.includes(v) && (lang.startsWith('id') || name.includes('indonesia') || name.includes('gadis') || name.includes('ardi') || name.includes('damayanti'));
+      });
+
+      // Masukkan suara Melayu ke dalam dropdown
+      msVoices.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.voiceURI;
+        opt.textContent = `🇲🇾 Melayu: ${v.name}`;
+        voiceSelectEl.appendChild(opt);
+      });
+
+      // Masukkan suara Asal Nusantara ke dalam dropdown
+      idVoices.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.voiceURI;
+        opt.textContent = `🌏 Suara Asal: ${v.name}`;
+        voiceSelectEl.appendChild(opt);
+      });
+
+      if ([...voiceSelectEl.options].some(o => o.value === currentSelection)) {
+        voiceSelectEl.value = currentSelection;
+      }
+    }
+
+    if ('speechSynthesis' in window) {
+      populateMalayVoices();
+      window.speechSynthesis.onvoiceschanged = populateMalayVoices;
+    }
+
+    voiceSelectEl.addEventListener('change', (e) => {
+      selectedVoiceURI = e.target.value;
+      speakText("Suara telah ditetapkan. Jom kita mula belajar wuduk!");
+    });
+
+    // Fungsi memilih suara Terbaik: 1. ms-MY -> 2. id-ID (Suara Asal Nusantara) -> JANGAN GUNA en-GB!
+    function getBestNusantaraVoice() {
+      if (!availableVoices.length) {
+        availableVoices = window.speechSynthesis.getVoices();
+      }
+
+      // Jika guru memilih secara manual pada dropdown
+      if (selectedVoiceURI !== 'auto') {
+        const manual = availableVoices.find(v => v.voiceURI === selectedVoiceURI);
+        if (manual) return manual;
+      }
+
+      // Keutamaan 1: Bahasa Melayu (ms-MY / Yasmin / Rizwan / Amira)
+      const malayVoice = availableVoices.find(v => {
+        const lang = (v.lang || '').toLowerCase();
+        const name = (v.name || '').toLowerCase();
+        return lang.startsWith('ms') || name.includes('malay') || name.includes('melayu') || name.includes('yasmin') || name.includes('rizwan') || name.includes('amira');
+      });
+      if (malayVoice) return malayVoice;
+
+      // Keutamaan 2: Suara Asal Nusantara (Google Bahasa Indonesia / Gadis / Damayanti / id-ID)
+      // Sebutan vokal a, e, i, o, u yang sangat jelas dan tidak berbunyi pelat British!
+      const googleIndo = availableVoices.find(v => {
+        const lang = (v.lang || '').toLowerCase();
+        const name = (v.name || '').toLowerCase();
+        return (lang.startsWith('id') || name.includes('indonesia')) && name.includes('google');
+      });
+      if (googleIndo) return googleIndo;
+
+      const anyIndo = availableVoices.find(v => {
+        const lang = (v.lang || '').toLowerCase();
+        const name = (v.name || '').toLowerCase();
+        return lang.startsWith('id') || name.includes('indonesia') || name.includes('gadis') || name.includes('damayanti') || name.includes('ardi');
+      });
+      if (anyIndo) return anyIndo;
+
+      return null;
+    }
+
+    // Kamus Fonetik Pintar: Menjadikan suara Nusantara menyebut perkataan mengikut rentak Bahasa Melayu Malaysia
+    function formatMalaysianPhonetics(text) {
+      return text
+        .replace(/^\d+\.\s*/, "") // Buang nombor soalan di depan
+        .replace(/Syafi‘i|Syafi'i/gi, "Sya-fi-i")
+        .replace(/berwuduk/gi, "ber-wu-duk")
+        .replace(/wuduk/gi, "wu-duk")
+        .replace(/Pilihan A:/gi, "Jawapan A, ")
+        .replace(/Pilihan B:/gi, "Jawapan B, ")
+        .replace(/Pilihan C:/gi, "Jawapan C, ")
+        .replace(/\bA,/g, "Éi,") // Sebutan huruf A mengikut sebutan sekolah Malaysia ("Éi") dan bukan "Ah"
+        .replace(/\bB,/g, "Bi,")
+        .replace(/\bC,/g, "Si,")
+        .replace(/\bA\./g, "Éi.")
+        .replace(/\bB\./g, "Bi.")
+        .replace(/\bC\./g, "Si.")
+        .replace(/bilakah/gi, "bila-kah")
+        .replace(/manakah/gi, "mana-kah")
+        .replace(/apakah/gi, "apa-kah")
+        .replace(/berapakah/gi, "berapa-kah");
+    }
+
+    function speakText(rawText) {
+      if (!isSpeechEnabled || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+
+      const cleanText = formatMalaysianPhonetics(rawText);
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+
+      const chosenVoice = getBestNusantaraVoice();
+      if (chosenVoice) {
+        utterance.voice = chosenVoice;
+        // Gunakan kod bahasa milik suara tersebut supaya enjin TTS tidak tukar balik ke en-GB
+        utterance.lang = chosenVoice.lang;
+      } else {
+        // Sandaran: guna id-ID kerana hampir semua pelayar Chrome ada enjin vokal Nusantara id-ID
+        utterance.lang = 'id-ID';
+      }
+
+      // Kadar kelajuan & nada mesra murid Tahun 1
+      utterance.rate = 0.92;
+      utterance.pitch = 1.05;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    /* ====================================================================
+       3. KESAN BUNYI WEB AUDIO API (BUIH AIR & LOCENG GEMBIRA)
+       ==================================================================== */
+    class SoundFX {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+      init() {
+        if (!this.ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (AudioCtx) this.ctx = new AudioCtx();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+      playBubblePop() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(500, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(1350, this.ctx.currentTime + 0.11);
+          gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.11);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.12);
+        } catch (e) {}
+      }
+      playCorrect() {
+        if (!this.enabled || !this.ctx) return;
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime + i * 0.08);
+          gain.gain.setValueAtTime(0.25, this.ctx.currentTime + i * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + i * 0.08 + 0.3);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(this.ctx.currentTime + i * 0.08);
+          osc.stop(this.ctx.currentTime + i * 0.08 + 0.32);
+        });
+      }
+      playWrong() {
+        if (!this.enabled || !this.ctx) return;
+        const notes = [330, 293.66];
+        notes.forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime + i * 0.14);
+          gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.14);
+          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + i * 0.14 + 0.25);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(this.ctx.currentTime + i * 0.14);
+          osc.stop(this.ctx.currentTime + i * 0.14 + 0.26);
+        });
+      }
+    }
+
+    const soundFX = new SoundFX();
+
+    /* ====================================================================
+       4. KAWALAN KECERAHAN KAMERA & KEADAAN PERMAINAN
+       ==================================================================== */
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let isAnswerLocked = false;
+    let cameraActive = false;
+    let camera = null;
+    let hands = null;
+
+    // 3 Tahap Kecerahan Kamera untuk bilik darjah yang malap
+    const BRIGHTNESS_LEVELS = [
+      { class: 'cam-bright-high', label: 'Kamera: Cerah ☀️' },
+      { class: 'cam-bright-ultra', label: 'Kamera: Sangat Cerah 🌟' },
+      { class: 'cam-bright-normal', label: 'Kamera: Normal 🌤️' }
+    ];
+    let brightnessIdx = 0;
+
+    // Masa sentuh buih (1.2 saat pantas untuk murid Tahun 1)
+    const DWELL_DURATION = 1200;
+    let currentHoverOption = null;
+    let dwellStartTime = 0;
+
+    // Rujukan DOM
+    const startScreen = document.getElementById('startScreen');
+    const gameScreen = document.getElementById('gameScreen');
+    const resultScreen = document.getElementById('resultScreen');
+    const questionBadge = document.getElementById('questionBadge');
+    const questionText = document.getElementById('questionText');
+    const currentScoreEl = document.getElementById('currentScore');
+    const optionCards = document.querySelectorAll('.option-card');
+
+    const feedbackModal = document.getElementById('feedbackModal');
+    const feedbackCard = document.getElementById('feedbackCard');
+    const feedbackEmoji = document.getElementById('feedbackEmoji');
+    const feedbackTitle = document.getElementById('feedbackTitle');
+    const feedbackDesc = document.getElementById('feedbackDesc');
+    const btnNextQuestion = document.getElementById('btnNextQuestion');
+
+    const webcamVideo = document.getElementById('webcamVideo');
+    const cameraFallbackBg = document.getElementById('cameraFallbackBg');
+    const handCanvas = document.getElementById('handCanvas');
+    const canvasCtx = handCanvas.getContext('2d');
+    const handCursor = document.getElementById('handCursor');
+    const dwellCircle = document.getElementById('dwellProgressCircle');
+    const handStatusBadge = document.getElementById('handStatusBadge');
+
+    // Togol Kecerahan Kamera
+    document.getElementById('btnBrightness').addEventListener('click', () => {
+      webcamVideo.classList.remove(BRIGHTNESS_LEVELS[brightnessIdx].class);
+      brightnessIdx = (brightnessIdx + 1) % BRIGHTNESS_LEVELS.length;
+      webcamVideo.classList.add(BRIGHTNESS_LEVELS[brightnessIdx].class);
+      document.getElementById('brightnessText').textContent = BRIGHTNESS_LEVELS[brightnessIdx].label;
+    });
+
+    /* ====================================================================
+       5. ALIRAN PERMAINAN KUIZ TAHUN 1
+       ==================================================================== */
+    function startGame() {
+      soundFX.init();
+      soundFX.playBubblePop();
+      currentQuestionIndex = 0;
+      score = 0;
+      currentScoreEl.textContent = '0';
+
+      startScreen.classList.add('hidden');
+      resultScreen.classList.add('hidden');
+      gameScreen.classList.remove('hidden');
+
+      if (!cameraActive) {
+        initCamera();
+      }
+      loadQuestion(currentQuestionIndex);
+    }
+
+    function loadQuestion(index) {
+      isAnswerLocked = false;
+      currentHoverOption = null;
+      resetDwellProgress();
+
+      const data = QUIZ_DATA[index];
+      questionBadge.textContent = `Soalan ${index + 1} / ${QUIZ_DATA.length}`;
+      questionText.textContent = data.question;
+
+      optionCards.forEach(card => {
+        const key = card.getAttribute('data-option');
+        card.querySelector('.option-text').textContent = data.options[key];
+        card.querySelector('.option-emoji').textContent = data.emojis[key];
+        card.classList.remove('ring-8', 'ring-emerald-400', 'ring-rose-400', 'scale-105');
+        const dBox = card.querySelector('.dwell-box');
+        if (dBox) dBox.classList.add('hidden');
+      });
+
+      // Baca soalan dalam Bahasa Melayu Malaysia
+      const speechPrompt = `${data.question} Pilihan A: ${data.options.A}. Pilihan B: ${data.options.B}. Pilihan C: ${data.options.C}.`;
+      speakText(speechPrompt);
+    }
+
+    function selectAnswer(selectedKey) {
+      if (isAnswerLocked) return;
+      isAnswerLocked = true;
+
+      const data = QUIZ_DATA[currentQuestionIndex];
+      const isCorrect = (selectedKey === data.correct);
+
+      optionCards.forEach(card => {
+        const key = card.getAttribute('data-option');
+        if (key === selectedKey) {
+          card.classList.add('ring-8', isCorrect ? 'ring-emerald-400' : 'ring-rose-400', 'scale-105');
+        }
+      });
+
+      if (isCorrect) {
+        score += 10;
+        currentScoreEl.textContent = score;
+        soundFX.playCorrect();
+        confetti({ particleCount: 70, spread: 75, origin: { y: 0.6 } });
+        showFeedback(true, data.explanation);
+      } else {
+        soundFX.playWrong();
+        showFeedback(false, `Jawapan yang betul ialah ${data.correct}, ${data.options[data.correct]}. ${data.explanation}`);
+      }
+    }
+
+    function showFeedback(isCorrect, explanation) {
+      feedbackModal.classList.remove('hidden');
+      if (isCorrect) {
+        feedbackCard.className = "w-full max-w-md bg-white rounded-[2rem] p-6 text-center shadow-2xl border-8 border-emerald-400 animate-mascot";
+        feedbackEmoji.textContent = "🌟💧🎉";
+        feedbackTitle.className = "font-fun text-3xl font-extrabold mb-2 text-emerald-600";
+        feedbackTitle.textContent = "Alhamdulillah, Pandainya!";
+        speakText(`Alhamdulillah, pandainya adik! ${explanation}`);
+      } else {
+        feedbackCard.className = "w-full max-w-md bg-white rounded-[2rem] p-6 text-center shadow-2xl border-8 border-amber-400 animate-mascot";
+        feedbackEmoji.textContent = "🤲💧💪";
+        feedbackTitle.className = "font-fun text-3xl font-extrabold mb-2 text-amber-600";
+        feedbackTitle.textContent = "Jom Cuba Lagi!";
+        speakText(`Tak mengapa, jom kita ingat semula. ${explanation}`);
+      }
+      feedbackDesc.textContent = explanation;
+    }
+
+    function nextQuestion() {
+      soundFX.playBubblePop();
+      feedbackModal.classList.add('hidden');
+      currentQuestionIndex++;
+      if (currentQuestionIndex < QUIZ_DATA.length) {
+        loadQuestion(currentQuestionIndex);
+      } else {
+        showFinalResult();
+      }
+    }
+
+    function showFinalResult() {
+      gameScreen.classList.add('hidden');
+      resultScreen.classList.remove('hidden');
+      document.getElementById('finalScore').textContent = score;
+      soundFX.playCorrect();
+      confetti({ particleCount: 140, spread: 100, origin: { y: 0.5 } });
+
+      const evalMsg = document.getElementById('evaluationMessage');
+      if (score >= 80) {
+        evalMsg.textContent = "Mumtaz! Adik sangat bijak. Semua niat dan 6 rukun wuduk adik dapat jawab dengan cemerlang!";
+      } else if (score >= 50) {
+        evalMsg.textContent = "Bagus usaha adik! Jom main sekali lagi supaya lebih lancar ingat 6 rukun wuduk.";
+      } else {
+        evalMsg.textContent = "Teruskan usaha bersama ustaz, ustazah dan kawan-kawan ya!";
+      }
+      speakText(`Tahniah! Adik mendapat ${score} markah. ${evalMsg.textContent}`);
+    }
+
+    /* ====================================================================
+       6. MEDIAPIPE HANDS (PENJEJAKAN TANGAN CERAH & PANTAS)
+       ==================================================================== */
+    function initCamera() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        cameraFallbackBg.classList.remove('hidden');
+        return;
+      }
+
+      hands = new Hands({
+        locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+      });
+
+      hands.setOptions({
+        maxNumHands: 1,
+        modelComplexity: 1,
+        minDetectionConfidence: 0.55,
+        minTrackingConfidence: 0.55
+      });
+
+      hands.onResults(onHandResults);
+
+      camera = new Camera(webcamVideo, {
+        onFrame: async () => {
+          if (cameraActive) {
+            await hands.send({ image: webcamVideo });
+          }
+        },
+        width: 640,
+        height: 480
+      });
+
+      camera.start().then(() => {
+        cameraActive = true;
+        cameraFallbackBg.classList.add('hidden');
+        document.getElementById('camStatusText').textContent = "Kamera Aktif";
+      }).catch(() => {
+        cameraFallbackBg.classList.remove('hidden');
+        document.getElementById('camStatusText').textContent = "Guna Skrin Sentuh";
+      });
+    }
+
+    function onHandResults(results) {
+      const rect = webcamVideo.getBoundingClientRect();
+      handCanvas.width = rect.width;
+      handCanvas.height = rect.height;
+
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, handCanvas.width, handCanvas.height);
+
+      if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+        const landmarks = results.multiHandLandmarks[0];
+        handStatusBadge.textContent = "✨ Tangan Dikesan! Sentuh Buih A, B, C";
+        handStatusBadge.className = "bg-emerald-400 text-emerald-950 font-fun text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md border-2 border-white";
+
+        // Titik 8: Hujung Jari Telunjuk
+        const indexTip = landmarks[8];
+        const screenX = (1 - indexTip.x) * rect.width;
+        const screenY = indexTip.y * rect.height;
+
+        // Lukis garisan tangan berwarna kuning/sian terang supaya murid Tahun 1 seronok melihat tangan mereka
+        drawBrightHand(landmarks, rect.width, rect.height);
+
+        handCursor.classList.remove('hidden');
+        handCursor.style.left = `${screenX}px`;
+        handCursor.style.top = `${screenY}px`;
+
+        checkFingerHitTest(screenX + rect.left, screenY + rect.top);
+      } else {
+        handCursor.classList.add('hidden');
+        handStatusBadge.textContent = "🖐️ Angkat Tangan di Hadapan Kamera!";
+        handStatusBadge.className = "bg-amber-400 text-amber-950 font-fun text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md border-2 border-white";
+        resetDwellProgress();
+      }
+
+      canvasCtx.restore();
+    }
+
+    function drawBrightHand(landmarks, width, height) {
+      // Lukis bulatan buih kecil pada setiap hujung jari (4, 8, 12, 16, 20)
+      const fingerTips = [4, 8, 12, 16, 20];
+      fingerTips.forEach(idx => {
+        const pt = landmarks[idx];
+        canvasCtx.beginPath();
+        canvasCtx.arc(pt.x * width, pt.y * height, idx === 8 ? 14 : 8, 0, 2 * Math.PI);
+        canvasCtx.fillStyle = idx === 8 ? '#fde047' : '#38bdf8';
+        canvasCtx.strokeStyle = '#ffffff';
+        canvasCtx.lineWidth = 3;
+        canvasCtx.fill();
+        canvasCtx.stroke();
+      });
+    }
+
+    function checkFingerHitTest(clientX, clientY) {
+      if (isAnswerLocked) {
+        resetDwellProgress();
+        return;
+      }
+
+      let hoveredCard = null;
+      optionCards.forEach(card => {
+        const box = card.getBoundingClientRect();
+        if (clientX >= box.left && clientX <= box.right && clientY >= box.top && clientY <= box.bottom) {
+          hoveredCard = card;
+        }
+      });
+
+      if (hoveredCard) {
+        const optKey = hoveredCard.getAttribute('data-option');
+        if (currentHoverOption !== optKey) {
+          currentHoverOption = optKey;
+          dwellStartTime = Date.now();
+          soundFX.playBubblePop();
+          showCardDwellVisual(hoveredCard, true);
+        } else {
+          const elapsed = Date.now() - dwellStartTime;
+          const progress = Math.min(elapsed / DWELL_DURATION, 1);
+          dwellCircle.style.strokeDashoffset = 176 - (176 * progress);
+
+          if (progress >= 1) {
+            resetDwellProgress();
+            selectAnswer(optKey);
+          }
+        }
+      } else {
+        resetDwellProgress();
+      }
+    }
+
+    function showCardDwellVisual(activeCard, show) {
+      optionCards.forEach(card => {
+        const dBox = card.querySelector('.dwell-box');
+        if (card === activeCard && show) {
+          card.classList.add('bubble-card-active');
+          if (dBox) dBox.classList.remove('hidden');
+        } else {
+          card.classList.remove('bubble-card-active');
+          if (dBox) dBox.classList.add('hidden');
+        }
+      });
+    }
+
+    function resetDwellProgress() {
+      currentHoverOption = null;
+      dwellCircle.style.strokeDashoffset = 176;
+      showCardDwellVisual(null, false);
+    }
+
+    /* ====================================================================
+       7. PENDENGAR ACARA (KLIK TETIKUS, SKRIN SENTUH & BUTANG)
+       ==================================================================== */
+    optionCards.forEach(card => {
+      card.addEventListener('click', () => {
+        soundFX.init();
+        selectAnswer(card.getAttribute('data-option'));
+      });
+    });
+
+    document.getElementById('btnStartGame').addEventListener('click', startGame);
+    document.getElementById('btnRestartGame').addEventListener('click', startGame);
+    btnNextQuestion.addEventListener('click', nextQuestion);
+
+    document.getElementById('btnTestMalayVoice').addEventListener('click', () => {
+      soundFX.init();
+      soundFX.playBubblePop();
+      speakText("Assalamualaikum adik-adik Tahun Satu! Jom kita belajar niat dan enam rukun wuduk bersama Si Titis.");
+    });
+
+    document.getElementById('btnReadQuestionAgain').addEventListener('click', () => {
+      soundFX.init();
+      const data = QUIZ_DATA[currentQuestionIndex];
+      speakText(`${data.question} Pilihan A: ${data.options.A}. Pilihan B: ${data.options.B}. Pilihan C: ${data.options.C}.`);
+    });
+
+    document.getElementById('btnVoiceToggle').addEventListener('click', () => {
+      soundFX.init();
+      isSpeechEnabled = !isSpeechEnabled;
+      soundFX.enabled = isSpeechEnabled;
+      document.getElementById('voiceStatusText').textContent = isSpeechEnabled ? "Suara: ON" : "Suara: OFF";
+      document.getElementById('voiceIcon').className = isSpeechEnabled ? "fa-solid fa-volume-high" : "fa-solid fa-volume-xmark";
+      if (!isSpeechEnabled && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+    });
+
+    document.getElementById('btnCameraToggle').addEventListener('click', () => {
+      if (!cameraActive) {
+        initCamera();
+      } else {
+        cameraActive = false;
+        handCursor.classList.add('hidden');
+        canvasCtx.clearRect(0, 0, handCanvas.width, handCanvas.height);
+        cameraFallbackBg.classList.remove('hidden');
+        document.getElementById('camStatusText').textContent = "Kamera: Tutup";
+      }
+    });
+  </script>
+</body>
+</html>
